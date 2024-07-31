@@ -41,6 +41,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { RiFlashlightFill } from "react-icons/ri";
 
+import { ChevronDownIcon } from "@chakra-ui/icons";
+
 const navLinks = [
   { name: "About", path: "#" },
   { name: "Features", path: "#" },
@@ -71,6 +73,7 @@ const Navbar = () => {
     <Box shadow="md">
       <chakra.header
         bg={bg}
+        border="none"
         borderColor="gray.600"
         borderBottomWidth={1}
         w="full"
@@ -80,7 +83,12 @@ const Navbar = () => {
         }}
         py={4}
       >
-        <Flex alignItems="center" justifyContent="space-between" mx="auto">
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          mx="auto"
+          gap={40}
+        >
           <HStack spacing={4} display="flex" alignItems="center">
             <Box
               display={{
@@ -95,11 +103,11 @@ const Navbar = () => {
                 }}
                 aria-label="Open menu"
                 fontSize="20px"
-                color="gray.800"
+                color="gray"
                 _dark={{
                   color: "inherit",
                 }}
-                variant="ghost"
+                variant="solid"
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
               />
@@ -109,7 +117,7 @@ const Navbar = () => {
                 left={0}
                 right={0}
                 display={mobileNav.isOpen ? "flex" : "none"}
-                flexDirection="column"
+                flexDirection=""
                 p={2}
                 pb={4}
                 m={2}
@@ -123,23 +131,14 @@ const Navbar = () => {
                   justifySelf="self-start"
                   onClick={mobileNav.onClose}
                 />
-                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-                  Dashboard
+                <Button w="full" leftIcon={<AiFillHome />}>
+                  Home
                 </Button>
-                <Button
-                  w="full"
-                  variant="solid"
-                  colorScheme="brand"
-                  leftIcon={<AiOutlineInbox />}
-                >
-                  Inbox
+                <Button w="full" leftIcon={<AiOutlineInbox />}>
+                  About
                 </Button>
-                <Button
-                  w="full"
-                  variant="ghost"
-                  leftIcon={<BsFillCameraVideoFill />}
-                >
-                  Videos
+                <Button w="full" leftIcon={<BsFillCameraVideoFill />}>
+                  Contact
                 </Button>
               </VStack>
             </Box>
@@ -152,9 +151,9 @@ const Navbar = () => {
               <Icon as={RiFlashlightFill} h={8} w={8} />
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
-            <chakra.h1 fontSize="xl">Settings</chakra.h1>
+            <chakra.h1 fontSize="xl">Logo</chakra.h1>
           </HStack>
-          <HStack spacing={3} display="flex" alignItems="center">
+          {/* <HStack spacing={3} display="flex" alignItems="center">
             <HStack
               spacing={3}
               display={{
@@ -204,75 +203,134 @@ const Navbar = () => {
               name="Dan Abrahmov"
               src="https://bit.ly/dan-abramov"
             />
-          </HStack>
+          </HStack> */}
+          <Tabs
+            defaultIndex={1}
+            borderBottomColor="transparent"
+            display="inline-flex"
+            ml={{
+              base: "-60",
+              md: "0",
+            }}
+          >
+            <TabList
+              display={{
+                base: "none",
+                md: "inline-flex",
+              }}
+            >
+              <Tab
+                py={4}
+                m={0}
+                _focus={{
+                  boxShadow: "none",
+                }}
+              >
+                Home
+              </Tab>
+              <Tab
+                py={4}
+                m={0}
+                _focus={{
+                  boxShadow: "none",
+                }}
+              >
+                About
+              </Tab>
+              <Tab
+                py={4}
+                m={0}
+                _focus={{
+                  boxShadow: "none",
+                }}
+              >
+                Contact
+              </Tab>
+            </TabList>
+
+            {/* User Profile */}
+            <TabList>
+              <Tab>
+                <chakra.a
+                  p={3}
+                  color="gray.800"
+                  _dark={{
+                    color: "inherit",
+                  }}
+                  rounded="sm"
+                  _hover={{
+                    color: "gray.800",
+                    _dark: {
+                      color: "gray.600",
+                    },
+                  }}
+                >
+                  <AiFillBell />
+                  <VisuallyHidden>Notifications</VisuallyHidden>
+                </chakra.a>
+              </Tab>
+              <Tab py={4} m={0}>
+                <Avatar
+                  size="sm"
+                  name="Dan Abrahmov"
+                  src="https://bit.ly/dan-abramov"
+                />
+              </Tab>
+              <Tab>
+                <chakra.a
+                  p={3}
+                  color="gray.800"
+                  _dark={{
+                    color: "inherit",
+                  }}
+                  rounded="sm"
+                  _hover={{
+                    color: "gray.800",
+                    _dark: {
+                      color: "gray.600",
+                    },
+                  }}
+                >
+                  <AiFillBell />
+                  <VisuallyHidden>Logout</VisuallyHidden>
+                </chakra.a>
+              </Tab>
+            </TabList>
+
+            {/*  */}
+          </Tabs>
         </Flex>
       </chakra.header>
       <Flex
         alignItems="center"
-        justifyContent="space-between"
-        mx={2}
+        justifyContent="center"
+        mx={4}
         borderWidth={0}
         overflowX="auto"
       >
-        <Tabs defaultIndex={1} borderBottomColor="transparent">
-          <TabList>
-            <Tab
-              py={4}
-              m={0}
-              _focus={{
-                boxShadow: "none",
-              }}
-            >
-              Basic
-            </Tab>
-            <Tab
-              py={4}
-              m={0}
-              _focus={{
-                boxShadow: "none",
-              }}
-            >
-              Integrations
-            </Tab>
-            <Tab
-              py={4}
-              m={0}
-              _focus={{
-                boxShadow: "none",
-              }}
-            >
-              Notifications
-            </Tab>
-            <Tab
-              py={4}
-              m={0}
-              _focus={{
-                boxShadow: "none",
-              }}
-            >
-              Usage
-            </Tab>
-            <Tab
-              py={4}
-              m={0}
-              _focus={{
-                boxShadow: "none",
-              }}
-            >
-              Billing
-            </Tab>{" "}
-            <Tab isDisabled py={4} m={0}>
-              Advanced
-            </Tab>
-          </TabList>
-        </Tabs>
-        <Spacer />
-        <HStack spacing={3} alignItems="center">
+        {/* <Spacer /> */}
+        <HStack spacing={3} alignItems="center" my={4}>
+          {/* Categories */}
+          <Menu>
+            <MenuButton as={Button} gap={14} rightIcon={<ChevronDownIcon />}>
+              Categories
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Download</MenuItem>
+              <MenuItem>Create a Copy</MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>Delete</MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
+          {/* Search */}
           <InputGroup
-            display={{
-              base: "none",
-              lg: "block",
-            }}
+            display={
+              {
+                // base: "none",
+                // lg: "block",
+              }
+            }
             ml="auto"
           >
             <InputLeftElement pointerEvents="none">
