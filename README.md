@@ -68,7 +68,7 @@ cd NetMart
 1. Navigate to the `client` directory:
 
     ```bash
-    cd ../client
+    cd client
     ```
 
 2. Install dependencies:
