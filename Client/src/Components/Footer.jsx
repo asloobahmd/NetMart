@@ -9,31 +9,33 @@ import {
   Image,
   Text,
   Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
-import { FaGithub } from "react-icons/fa";
-import { BsDiscord } from "react-icons/bs";
+
 import logo from "../assets/Logo.png";
 
 const Footer = () => {
+  const bg = useColorModeValue("white", "gray.800");
   return (
     <Box p={{ base: 5, md: 8 }} maxW="5xl" marginInline="auto">
       <Stack
+        bg={bg}
         spacing={{ base: 8, md: 0 }}
         justifyContent="space-between"
         direction={{ base: "column", md: "row" }}
       >
         <Box maxW="300px">
           <Link href="" isExternal>
-            <Image w="120px" h="140px" src={logo} alt="TemplatesKart" />
+            <Image w="30%" src={logo} alt="TemplatesKart" />
           </Link>
           <Text mt={2} color="gray.500" fontSize="md">
-            Build fully functional accessible web applications faster than ever
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
+            enim.
           </Text>
         </Box>
         <HStack
           spacing={4}
-          display={{ base: "none", sm: "flex" }}
           justifyContent={{ sm: "space-between", md: "normal" }}
         >
           <VStack spacing={4} alignItems="flex-start">
@@ -79,29 +81,12 @@ const Footer = () => {
         spacing={3}
         justifyContent="space-between"
       >
-        <Text fontSize="md">
-          Built by{" "}
-          <Link
-            href="#"
-            textDecoration="underline"
-            _hover={{ textDecoration: "underline" }}
-            isExternal
-          >
-            Muhammad Ahmad
-          </Link>
-        </Text>
+        <Text fontSize="md">All rights reserved @2024</Text>
         <Stack spacing={2} direction={{ base: "column", md: "row" }}>
-          <Button
-            leftIcon={<FaGithub />}
-            as={Link}
-            href="#"
-            rounded="md"
-            colorScheme="gray"
-          >
-            Github Discussions
+          <Button as={Link} href="#" rounded="md" colorScheme="gray">
+            Lorem
           </Button>
           <Button
-            leftIcon={<BsDiscord />}
             as={Link}
             href=""
             rounded="md"
@@ -109,7 +94,7 @@ const Footer = () => {
             bg="purple.500"
             _hover={{ bg: "purple.600" }}
           >
-            Discord community
+            Lorem
           </Button>
         </Stack>
       </Stack>

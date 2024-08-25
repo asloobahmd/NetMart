@@ -1,69 +1,70 @@
-import * as React from "react";
-import {
-  Container,
-  Heading,
-  Stack,
-  HStack,
-  Text,
-  Button,
-  Image,
-} from "@chakra-ui/react";
+import React, { useRef, useState } from "react";
 
-const companiesImages = [
-  "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-  "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-  "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-  "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-  "https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-  "https://images.unsplash.com/photo-1611162617263-4ec3060a058e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80",
-];
+//Import Images
+import image1 from "../../assets/banner_mens.png";
+import image2 from "../../assets/banner_women.png";
+import image3 from "../../assets/banner_kids.png";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 const HeroSection = () => {
+  const projects = [
+    {
+      name: "banner 1",
+      img: image1,
+      link: "#",
+    },
+    {
+      name: "banner 2",
+      img: image2,
+      link: "#",
+    },
+    {
+      name: "banner 3",
+      img: image3,
+      link: "#",
+    },
+  ];
+
   return (
-    <Container maxW="7xl" p={4}>
-      <Stack direction="column" spacing={6} alignItems="center" mt={8} mb={16}>
-        <Heading
-          as="h1"
-          fontSize="4xl"
-          fontWeight="bold"
-          textAlign="center"
-          maxW="600px"
-        >
-          We're on a mission to make <br /> building UIs more accessible
-        </Heading>
-        <Text maxW="500px" fontSize="lg" textAlign="center" color="gray.500">
-          Our mission is to empower anyone to build UIs, faster. We're reducing
-          the entry barrier, making design skills accessible.
-        </Text>
-        <HStack spacing={5}>
-          <Button colorScheme="teal" variant="solid" rounded="md" size="lg">
-            Get Started
-          </Button>
-        </HStack>
-      </Stack>
-      <Stack spacing={5} alignItems="center" mb={8}>
-        <HStack
-          spacing={{ base: 0, md: 10 }}
-          justifyContent="center"
-          maxW={{ base: "500px", md: "100%" }}
-          flexWrap="wrap"
-        >
-          {companiesImages.map((img, index) => (
-            <Image
-              key={index}
-              src={img}
-              alt="company logo"
-              w={{ base: "8rem", md: "5rem" }}
-              p={{ base: 5, md: 0 }}
-            />
-          ))}
-        </HStack>
-        <Text maxW="500px" fontSize="md" textAlign="center" color="gray.500">
-          The world's best product teams trust us to deliver an unrivaled
-          experience for both developers and users.
-        </Text>
-      </Stack>
-    </Container>
+    <>
+      <Swiper
+        spaceBetween={10}
+        breakpoints={{
+          768: {
+            slidesPerView: 1,
+          },
+        }}
+        loop={true}
+        autoplay={{ delay: 7000 }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination, Autoplay, Navigation]}
+      >
+        {projects?.map((project, i) => {
+          return (
+            <SwiperSlide>
+              <div
+                key={i}
+                className=" h-fit w-full rounded-xl md:mt-40 mt-60 mx-4"
+              >
+                <img
+                  src={project.img}
+                  alt=""
+                  className=" rounded-xl w-[100%] h-[40%]"
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </>
   );
 };
 

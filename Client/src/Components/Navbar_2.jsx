@@ -5,13 +5,10 @@ import {
   HStack,
   Button,
   Text,
-  Link,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  Stack,
-  Icon,
   IconButton,
   useDisclosure,
   useColorModeValue,
@@ -26,51 +23,30 @@ import {
   Tabs,
   TabList,
   Tab,
-  Spacer,
+  Portal,
 } from "@chakra-ui/react";
-import {
-  AiOutlineMenu,
-  AiFillHome,
-  AiOutlineInbox,
-  AiFillBell,
-  AiOutlineSearch,
-} from "react-icons/ai";
-import { BsFillCameraVideoFill } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose } from "react-icons/ai";
-import { BiChevronDown } from "react-icons/bi";
-import { RiFlashlightFill } from "react-icons/ri";
+import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+
+import { FaShoppingCart } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
 
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-const navLinks = [
-  { name: "About", path: "#" },
-  { name: "Features", path: "#" },
-  { name: "Pricing", path: "#" },
-];
-
-const dropdownLinks = [
-  {
-    name: "Blog",
-    path: "#",
-  },
-  {
-    name: "Documentation",
-    path: "#",
-  },
-  {
-    name: "Github Repo",
-    path: "#",
-  },
-];
+import logo from "../assets/Logo.png";
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const menus = [
+    { name: "Home", link: "#home" },
+    { name: "Offers", link: "#offers" },
+    { name: "About", link: "#about" },
+    { name: "Contact", link: "#contact" },
+  ];
 
   return (
-    <Box shadow="md">
+    <Box shadow="md" position="fixed" w="full" zIndex="999" bg={bg}>
       <chakra.header
         bg={bg}
         border="none"
@@ -81,15 +57,22 @@ const Navbar = () => {
           base: 2,
           sm: 4,
         }}
-        py={4}
+        py={0}
       >
         <Flex
           alignItems="center"
           justifyContent="space-between"
+          direction={{ base: "column", md: "row" }}
           mx="auto"
-          gap={40}
         >
-          <HStack spacing={4} display="flex" alignItems="center">
+          <HStack
+            spacing={4}
+            display="flex"
+            alignItems="center"
+            bg={bg}
+            zIndex="999"
+            gap={48}
+          >
             <Box
               display={{
                 base: "inline-flex",
@@ -120,6 +103,7 @@ const Navbar = () => {
                 flexDirection=""
                 p={2}
                 pb={4}
+                py={4}
                 m={2}
                 bg={bg}
                 spacing={3}
@@ -131,125 +115,74 @@ const Navbar = () => {
                   justifySelf="self-start"
                   onClick={mobileNav.onClose}
                 />
-                <Button w="full" leftIcon={<AiFillHome />}>
-                  Home
-                </Button>
-                <Button w="full" leftIcon={<AiOutlineInbox />}>
-                  About
-                </Button>
-                <Button w="full" leftIcon={<BsFillCameraVideoFill />}>
-                  Contact
-                </Button>
+                {menus?.map((menu, i) => {
+                  return <Button w="full">{menu.name}</Button>;
+                })}
               </VStack>
             </Box>
+
             <chakra.a
               href="/"
               title="Choc Home Page"
               display="flex"
               alignItems="center"
+              marginTop={4}
             >
-              <Icon as={RiFlashlightFill} h={8} w={8} />
-              <VisuallyHidden>Choc</VisuallyHidden>
-            </chakra.a>
-            <chakra.h1 fontSize="xl">Logo</chakra.h1>
-          </HStack>
-          {/* <HStack spacing={3} display="flex" alignItems="center">
-            <HStack
-              spacing={3}
-              display={{
-                base: "none",
-                md: "inline-flex",
-              }}
-            >
-              <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
-                Dashboard
-              </Button>
-              <Button
-                variant="solid"
-                colorScheme="brand"
-                leftIcon={<AiOutlineInbox />}
-                size="sm"
-              >
-                Inbox
-              </Button>
-              <Button
-                variant="ghost"
-                leftIcon={<BsFillCameraVideoFill />}
-                size="sm"
-              >
-                Videos
-              </Button>
-            </HStack>
-            <chakra.a
-              p={3}
-              color="gray.800"
-              _dark={{
-                color: "inherit",
-              }}
-              rounded="sm"
-              _hover={{
-                color: "gray.800",
-                _dark: {
-                  color: "gray.600",
-                },
-              }}
-            >
-              <AiFillBell />
-              <VisuallyHidden>Notifications</VisuallyHidden>
-            </chakra.a>
+              <img src={logo} className=" w-18 h-14 " />
 
-            <Avatar
-              size="sm"
-              name="Dan Abrahmov"
-              src="https://bit.ly/dan-abramov"
-            />
-          </HStack> */}
+              <VisuallyHidden>NetMart</VisuallyHidden>
+            </chakra.a>
+          </HStack>
+
+          {/* Menus */}
           <Tabs
-            defaultIndex={1}
+            defaultIndex={0}
             borderBottomColor="transparent"
-            display="inline-flex"
+            display="flex"
+            flexDirection="column"
             ml={{
-              base: "-60",
-              md: "0",
+              base: "-52",
+              md: "32",
             }}
           >
             <TabList
               display={{
                 base: "none",
-                md: "inline-flex",
+                md: "inlinex",
               }}
             >
-              <Tab
-                py={4}
-                m={0}
-                _focus={{
-                  boxShadow: "none",
-                }}
-              >
-                Home
-              </Tab>
-              <Tab
-                py={4}
-                m={0}
-                _focus={{
-                  boxShadow: "none",
-                }}
-              >
-                About
-              </Tab>
-              <Tab
-                py={4}
-                m={0}
-                _focus={{
-                  boxShadow: "none",
-                }}
-              >
-                Contact
-              </Tab>
+              {menus?.map((menu, i) => {
+                return (
+                  <Tab
+                    key={i}
+                    py={4}
+                    m={0}
+                    _focus={{
+                      boxShadow: "none",
+                    }}
+                  >
+                    {menu.name}
+                  </Tab>
+                );
+              })}
             </TabList>
+          </Tabs>
 
-            {/* User Profile */}
-            <TabList>
+          {/* ---------------- */}
+
+          <Tabs
+            defaultIndex="none"
+            borderBottomColor="transparent"
+            display="inline-flex"
+          >
+            <TabList
+              display="flex"
+              gap={{
+                base: "10",
+                lg: "0",
+              }}
+            >
+              {/* User Cart */}
               <Tab>
                 <chakra.a
                   p={3}
@@ -265,17 +198,36 @@ const Navbar = () => {
                     },
                   }}
                 >
-                  <AiFillBell />
-                  <VisuallyHidden>Notifications</VisuallyHidden>
+                  <FaShoppingCart size={30} />
+                  {/* <div className=" bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-sm text-white">
+                    10
+                  </div> */}
+                  <VisuallyHidden>Cart</VisuallyHidden>
                 </chakra.a>
               </Tab>
-              <Tab py={4} m={0}>
-                <Avatar
-                  size="sm"
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                />
+
+              {/* User Profile */}
+              <Tab py={4} m={0} gap={3} display="flex">
+                <Menu>
+                  <MenuButton as={Button} colorScheme="none" textColor="black">
+                    <Box display="flex" gap={4}>
+                      <Avatar
+                        size="sm"
+                        name="Dan Abrahmov"
+                        src="https://bit.ly/dan-abramov"
+                      />
+                      <Text>name</Text>
+                    </Box>
+                  </MenuButton>
+
+                  <MenuList>
+                    <MenuItem>Profile</MenuItem>
+                    <MenuItem>Settings</MenuItem>
+                  </MenuList>
+                </Menu>
               </Tab>
+
+              {/* User Logout */}
               <Tab>
                 <chakra.a
                   p={3}
@@ -291,7 +243,7 @@ const Navbar = () => {
                     },
                   }}
                 >
-                  <AiFillBell />
+                  <LuLogOut size={30} />
                   <VisuallyHidden>Logout</VisuallyHidden>
                 </chakra.a>
               </Tab>
@@ -301,26 +253,33 @@ const Navbar = () => {
           </Tabs>
         </Flex>
       </chakra.header>
+
       <Flex
         alignItems="center"
         justifyContent="center"
         mx={4}
         borderWidth={0}
-        overflowX="auto"
+        overflowX="hidden"
+        zIndex="999"
+        bg={bg}
       >
         {/* <Spacer /> */}
-        <HStack spacing={3} alignItems="center" my={4}>
+        <HStack spacing={3} alignItems="center" my={3}>
           {/* Categories */}
           <Menu>
-            <MenuButton as={Button} gap={14} rightIcon={<ChevronDownIcon />}>
+            <MenuButton
+              as={Button}
+              gap={14}
+              w={36}
+              rightIcon={<ChevronDownIcon />}
+            >
               Categories
             </MenuButton>
             <MenuList>
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
+              <MenuItem>Category 01</MenuItem>
+              <MenuItem>Category 02</MenuItem>
+              <MenuItem>Category 03</MenuItem>
+              <MenuItem>Category 04</MenuItem>
             </MenuList>
           </Menu>
           {/* Search */}
@@ -332,6 +291,10 @@ const Navbar = () => {
               }
             }
             ml="auto"
+            w={{
+              lg: "700px",
+              sm: "60",
+            }}
           >
             <InputLeftElement pointerEvents="none">
               <AiOutlineSearch />

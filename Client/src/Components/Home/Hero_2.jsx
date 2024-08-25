@@ -1,131 +1,104 @@
 import * as React from "react";
-import {
-  chakra,
-  Container,
-  Stack,
-  HStack,
-  Text,
-  useColorModeValue,
-  Button,
-  Image,
-  Skeleton,
-  Box,
-  Link,
-  Icon,
-} from "@chakra-ui/react";
-// Here we have used react-icons package for the icons
-import { GoChevronRight } from "react-icons/go";
-import { MdBolt } from "react-icons/md";
+import image1 from "../../assets/Clothing/product_1.png";
+import image2 from "../../assets/Clothing/product_13.png";
+import image3 from "../../assets/Clothing/product_14.png";
+import image4 from "../../assets/Clothing/product_27.png";
+
+const products = [
+  {
+    name: "Product 01",
+    brand: "Brand",
+    new_price: "100$",
+    old_price: "110$",
+    image: image1,
+  },
+  {
+    name: "Product 02",
+    brand: "Brand",
+    new_price: "100$",
+    old_price: "110$",
+    image: image2,
+  },
+  {
+    name: "Product 03",
+    brand: "Brand",
+    new_price: "100$",
+    old_price: "110$",
+    image: image3,
+  },
+  {
+    name: "Product 04",
+    brand: "Brand",
+    new_price: "100$",
+    old_price: "110$",
+    image: image4,
+  },
+];
 
 const HeroSection = () => {
   return (
-    <Container maxW="6xl" px={{ base: 6, md: 3 }} py={24}>
-      <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
-        <Stack
-          direction="column"
-          spacing={6}
-          justifyContent="center"
-          maxW="480px"
-        >
-          <HStack
-            as={Link}
-            p={1}
-            rounded="full"
-            fontSize="sm"
-            w="max-content"
-            bg={useColorModeValue("gray.300", "gray.700")}
+    <section
+      id="Projects"
+      className="w-fit mx-auto text-black  grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center lg:gap-y-20 lg:gap-x-14 md:gap-y-20 gap-y-4 gap-x-4 md:gap-x-14 mt-10 mb-5"
+    >
+      {products?.map((product, i) => {
+        return (
+          <div
+            key={i}
+            className="sm:w-64 lg:w-64 w-40  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
           >
-            <Box
-              py={1}
-              px={2}
-              lineHeight={1}
-              rounded="full"
-              color="white"
-              bgGradient="linear(to-l, #0ea5e9,#2563eb)"
-            >
-              What's new
-            </Box>
-            <HStack spacing={1} alignItems="center" justifyContent="center">
-              <Text lineHeight={1}>See our recent updates</Text>
-              <Icon as={GoChevronRight} w={4} h={4} />
-            </HStack>
-          </HStack>
-          <chakra.h1
-            fontSize="5xl"
-            lineHeight={1}
-            fontWeight="bold"
-            textAlign="left"
-          >
-            Build products faster <br />
-            <chakra.span color="teal">in ChakraUI</chakra.span>
-          </chakra.h1>
-          <Text
-            fontSize="1.2rem"
-            textAlign="left"
-            lineHeight="1.375"
-            fontWeight="400"
-            color="gray.500"
-          >
-            TemplatesKart provides the best ChakraUI templates. Focus on your
-            business, not on the boilerplate.
-          </Text>
-          <HStack
-            spacing={{ base: 0, sm: 2 }}
-            mb={{ base: "3rem !important", sm: 0 }}
-            flexWrap="wrap"
-          >
-            <chakra.button
-              w={{ base: "100%", sm: "auto" }}
-              h={12}
-              px={6}
-              color="white"
-              size="lg"
-              rounded="md"
-              mb={{ base: 2, sm: 0 }}
-              zIndex={5}
-              lineHeight={1}
-              bgGradient="linear(to-l, #0ea5e9,#2563eb)"
-              _hover={{
-                bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
-                opacity: 0.9,
-              }}
-            >
-              <chakra.span> Explore ComponentsKart </chakra.span>
-              <Icon as={MdBolt} h={4} w={4} ml={1} />
-            </chakra.button>
-            <Box
-              d="flex"
-              justifyContent="center"
-              bg={useColorModeValue("white", "gray.800")}
-              w={{ base: "100%", sm: "auto" }}
-              border="1px solid"
-              borderColor="gray.300"
-              p={3}
-              lineHeight={1.18}
-              rounded="md"
-              boxShadow="md"
-              as={Link}
-              zIndex={55555555}
-            >
-              Watch Video
-            </Box>
-          </HStack>
-        </Stack>
-        <Box ml={{ base: 0, md: 5 }} pos="relative">
-          <DottedBox />
-          <Image
-            w="100%"
-            h="100%"
-            minW={{ base: "auto", md: "30rem" }}
-            objectFit="cover"
-            src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&q=80&
-            fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80`}
-            rounded="md"
-            fallback={<Skeleton />}
-          />
-        </Box>
-      </Stack>
-    </Container>
+            {/* product image */}
+            <a href="#">
+              <img
+                src={product.image}
+                alt="Product"
+                className="h-58 w-44 lg:h-72 lg:w-64 sm:h-72 sm:w-64 object-cover rounded-t-xl"
+              />
+
+              {/* product brand */}
+              <div className="px-4 py-3 lg:w-64 sm:w-64 w-40">
+                <span className="text-gray-400 mr-3 uppercase text-xs">
+                  {product.brand}
+                </span>
+
+                {/* product name */}
+                <p className="text-lg font-bold text-black truncate block capitalize">
+                  {product.name}
+                </p>
+                {/* product new price */}
+                <div className="flex items-center">
+                  <p className="text-lg font-semibold text-black cursor-auto my-3">
+                    {product.new_price}
+                  </p>
+                  <del>
+                    {/* product old price */}
+                    <p className="text-sm text-gray-600 cursor-auto ml-2">
+                      {product.old_price}
+                    </p>
+                  </del>
+                  <div className="ml-auto">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      className="bi bi-bag-plus"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"
+                      />
+                      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        );
+      })}
+    </section>
   );
 };
 
