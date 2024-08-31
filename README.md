@@ -33,7 +33,6 @@ Before you begin, ensure you have met the following requirements:
 
 ```bash
 git clone https://github.com/your-username/NetMart.git
-cd NetMart
 ```
 
 ### Backend Setup
@@ -63,12 +62,26 @@ cd NetMart
    npm start
    ```
 
-### Frontend Setup
+### Frontend Setup (Client)
 
 1. Navigate to the `client` directory:
 
    ```bash
-   cd ../client
+   cd client
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Frontend Setup (Admin)
+
+1. Navigate to the `admin` directory:
+
+   ```bash
+   cd admin
    ```
 
 2. Install dependencies:
@@ -78,14 +91,16 @@ cd NetMart
    ```
 
 ## Usage
+### Client & Admin
 
-To run the application, navigate to the `client` directory and run the development server:
+To run the application, navigate to the `client or admin` directory and run the development server:
 
 ```bash
 npm run dev
 ```
 
 Open your browser and visit `http://localhost:3000` to see the application in action.
+
 
 ## Scripts
 
@@ -101,7 +116,7 @@ Open your browser and visit `http://localhost:3000` to see the application in ac
 
 ## Technologies Used
 
-- **Frontend**: React, Chakra UI
+- **Frontend**: React, Chakra UI, Tailwind css
 - **Backend**: Node.js, Express
 - **Database**: MongoDB
 - **Authentication**: JWT
@@ -112,4 +127,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Happy Coding! 🌟
