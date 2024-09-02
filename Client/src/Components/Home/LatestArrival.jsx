@@ -39,7 +39,7 @@ const products = [
 
 const LatestArrival = () => {
   return (
-    <div className="">
+    <div className="py-14">
       <div className="max-w-md mx-auto text-center ">
         <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
           Our featured items
@@ -49,6 +49,7 @@ const LatestArrival = () => {
           faucibus massa dignissim tempus.
         </p>
       </div>
+
       <section
         id="Projects"
         className="w-fit mx-auto text-black  grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center lg:gap-y-20 lg:gap-x-14 md:gap-y-20 gap-y-4 gap-x-4 md:gap-x-14 mt-10 mb-5"

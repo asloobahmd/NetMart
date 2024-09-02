@@ -35,8 +35,8 @@ const PageLayout = ({ products, backgroundImage }) => {
           </main>
         </div>
       </div>
-      {/* 
-      <!-- Pagination --> */}
+
+      {/* <!-- Pagination --> */}
       <nav
         className="flex items-center justify-center -space-x-px mb-5"
         aria-label="Pagination"
