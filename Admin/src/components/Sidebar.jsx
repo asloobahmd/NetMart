@@ -6,12 +6,13 @@ const Sidebar = ({ clicked, setClicked }) => {
   return (
     <aside className="overflow-hidden">
       <div
+        onClick={() => setClicked(false)}
         className={`absolute lg:static lg:translate-x-0 z-50 w-full lg:w-72 duration-700  ${
           clicked ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="w-72 bg-[#1C2434] dark:bg-primary h-screen overflow-y-auto your-class">
-          <div className="sticky top-0 h-20 flex items-center bg-[#1C2434] dark:bg-primary gap-x-2 pl-6 p-3">
+          <div className="sticky top-0 h-20 flex items-center bg-[#1C2434] dark:bg-primary gap-x-3 pl-6 p-3">
             <img src={Logo} className="w-8 h-8" alt="" />
             <h1 className="font-semibold text-3xl text-white">NetMart</h1>
             <button

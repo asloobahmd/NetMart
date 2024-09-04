@@ -4,10 +4,10 @@ import ToggleBtn from "./ToggleBtn";
 const Navbar = ({ clicked, setClicked }) => {
   return (
     <nav className="py-3 sticky top-0 bg-white navbar-shadow dark:bg-primary">
-      <div className="h-[56px] p-6 max-sm:p-4 max-lg:pl-14 flex items-center justify-between">
+      <div className="h-[56px] p-6 max-lg:pl-10 flex items-center justify-between">
         <button
-          className="lg:hidden absolute left-6"
-          onClick={() => setClicked(!clicked)}
+          className="lg:hidden absolute left-6 max-sm:left-4"
+          onClick={() => setClicked(true)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
