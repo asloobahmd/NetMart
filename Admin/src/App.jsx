@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import Router from "./Routes/Router";
 
 function App() {
   return (
     <div className="">
-      <Outlet />
+      <RouterProvider router={Router} />
     </div>
   );
 }
