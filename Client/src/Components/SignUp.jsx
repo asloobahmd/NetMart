@@ -41,6 +41,7 @@ const App = () => {
       justifyContent="center"
       alignItems="center"
       mb={4}
+      my={8}
     >
       <Stack
         flexDir="column"
@@ -50,7 +51,7 @@ const App = () => {
       >
         <Box>
           {/* <Avatar bg="Black" /> */}
-          <Heading color="black">Signup</Heading>
+          <Heading color="">Signup</Heading>
         </Box>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
@@ -153,7 +154,7 @@ const App = () => {
       </Stack>
       <Box>
         Already have an account?{" "}
-        <Link color="black" href="/login">
+        <Link color="" href="/login">
           Login
         </Link>
       </Box>

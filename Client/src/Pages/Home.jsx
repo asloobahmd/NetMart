@@ -12,7 +12,7 @@ import Hero from "../Components/Home/Hero";
 
 const Home = () => {
   return (
-    <div>
+    <div className=" dark:bg-bgdark">
       <Banner_1 />
       {/* <Hero /> */}
       <Promo_2 />

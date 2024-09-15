@@ -1,15 +1,18 @@
 import React from "react";
 
 const Stats = () => {
+  const textColors = "text-grey-900 dark:text-white text-gray-600";
+  const bgColors = "bg-white dark:bg-bgdark";
+
   return (
-    <div class="bg-white py-24 sm:py-32">
+    <div class={`py-24 sm:py-32 ${bgColors} ${textColors}`}>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-none">
           <div class="text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 class="text-3xl font-bold tracking-tight  sm:text-4xl">
               Empowering Businesses Globally
             </h2>
-            <p class="mt-4 text-lg leading-8 text-gray-600">
+            <p class="mt-4 text-lg leading-8">
               Our platform is trusted by organizations worldwide to boost
               productivity, streamline operations, and enhance customer
               experiences.

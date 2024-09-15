@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div style={{ paddingTop: "10rem" }}>
+      <div style={{ paddingTop: "8rem" }}>
         <Outlet />
       </div>
       <Footer />

@@ -38,13 +38,14 @@ const products = [
 ];
 
 const LatestArrival = () => {
+  const textColors = "text-grey-900 dark:text-white text-gray-600";
+  const bgColors = "bg-white dark:bg-bgdark";
+
   return (
-    <div className="py-14">
+    <div className={`py-14 ${bgColors} ${textColors}`}>
       <div className="max-w-md mx-auto text-center ">
-        <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-          Our featured items
-        </h2>
-        <p className="mt-4 text-base font-normal leading-7 text-gray-600">
+        <h2 className="text-2xl font-bold sm:text-3xl">Latest Arrival</h2>
+        <p className="mt-4 text-base font-normal leading-7 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
           faucibus massa dignissim tempus.
         </p>
@@ -52,7 +53,7 @@ const LatestArrival = () => {
 
       <section
         id="Projects"
-        className="w-fit mx-auto text-black  grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center lg:gap-y-20 lg:gap-x-14 md:gap-y-20 gap-y-4 gap-x-4 md:gap-x-14 mt-10 mb-5"
+        className="w-fit mx-auto  grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center lg:gap-y-20 lg:gap-x-14 md:gap-y-20 gap-y-4 gap-x-4 md:gap-x-14 mt-10 mb-5"
       >
         {products?.map((product, i) => {
           return (
