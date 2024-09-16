@@ -15,6 +15,7 @@ import {
   FormControl,
   FormHelperText,
   InputRightElement,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
@@ -33,6 +34,8 @@ const App = () => {
 
   const handleShowClick = () => setShowPassword(!showPassword);
 
+  const bg = useColorModeValue("white", "gray.900");
+
   return (
     <Flex
       flexDirection="column"
@@ -48,6 +51,8 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
         mb={4}
+        bg={bg}
+        borderRadius={8}
       >
         <Box>
           {/* <Avatar bg="Black" /> */}
@@ -60,6 +65,7 @@ const App = () => {
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              bg={bg}
             >
               <HStack>
                 <FormControl>

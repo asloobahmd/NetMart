@@ -3,17 +3,19 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { RouterProvider } from "react-router-dom";
 import Router from "./Routes/Router.jsx";
-import { ThemContextProvider } from "./Context/ThemeContext.jsx";
+import { ThemeContextProvider } from "./Context/ThemeContext.jsx";
+import theme from "./ChakraTheme/theme.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
-      <ThemContextProvider>
+      <ThemeContextProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <RouterProvider router={Router} />
-      </ThemContextProvider>
+      </ThemeContextProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

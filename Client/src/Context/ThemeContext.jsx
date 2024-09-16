@@ -1,28 +1,30 @@
 import { createContext, useEffect, useState } from "react";
+import { useColorMode } from "@chakra-ui/react";
 
 export const ThemeContext = createContext(null);
 
-export const ThemContextProvider = ({ children }) => {
-  const [themeMode, setthemeMode] = useState(
-    localStorage.getItem("mode") || null
+export const ThemeContextProvider = ({ children }) => {
+  const [themeMode, setThemeMode] = useState(
+    localStorage.getItem("mode") || "light"
   );
+  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     if (themeMode === "dark") {
       document.documentElement.classList.add("dark");
-      // document.documentElement.setAttribute("data-theme", "dark"); // this is needed to toggle daisy ui theme if used that
+      if (colorMode !== "dark") toggleColorMode();
     } else {
       document.documentElement.classList.remove("dark");
-      // document.documentElement.setAttribute("data-theme", "light");
+      if (colorMode !== "light") toggleColorMode();
     }
-  }, [themeMode]);
+  }, [themeMode, colorMode, toggleColorMode]);
 
   useEffect(() => {
     localStorage.setItem("mode", themeMode);
   }, [themeMode]);
 
   const toggleTheme = () => {
-    setthemeMode(themeMode == "dark" ? "light" : "dark");
+    setThemeMode(themeMode === "dark" ? "light" : "dark");
   };
 
   const value = { themeMode, toggleTheme };

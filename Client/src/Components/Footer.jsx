@@ -18,10 +18,7 @@ import { IoLogoInstagram } from "react-icons/io";
 import { IoLogoTwitter } from "react-icons/io";
 
 const Footer = () => {
-  const textColors = "text-grey-900 dark:text-white text-gray-600";
-  const bgColors = "bg-white dark:bg-bgdark";
-
-  const bg = useColorModeValue("gray.50", "gray.800");
+  const bg = useColorModeValue("gray.50", "gray.900");
   return (
     <div className="">
       <Divider colorScheme="black" />
