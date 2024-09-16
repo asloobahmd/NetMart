@@ -42,7 +42,7 @@ import { Link as RouterLink } from "react-router-dom";
 import ThemeToggle from "./Buttons/ThemeToggle";
 
 const Navbar = () => {
-  const bg = useColorModeValue("white", "gray.800");
+  const bg = useColorModeValue("white", "gray.900");
   const mobileNav = useDisclosure();
 
   const menus = [

@@ -8,6 +8,7 @@ export default {
         primary: "#24303F",
         bgdark: "#1A222C",
         productbgdark: "#3d444d",
+        componentbgdark: "red",
         bglight: "#F1F5F9",
       },
     },
