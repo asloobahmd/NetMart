@@ -51,7 +51,7 @@ const Banner = () => {
         {projects?.map((project, i) => {
           return (
             <SwiperSlide>
-              <div key={i} className="h-fit w-full rounded-xl  mx-1">
+              <div key={i} className="h-fit w-full rounded-xl mx-auto my-3">
                 <img
                   src={project.img}
                   alt=""

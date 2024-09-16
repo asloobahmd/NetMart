@@ -39,6 +39,8 @@ import logo from "../assets/Logo.png";
 
 import { Link as RouterLink } from "react-router-dom";
 
+import ThemeToggle from "./Buttons/ThemeToggle";
+
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
@@ -432,6 +434,7 @@ const Navbar = () => {
             </InputLeftElement>
             <Input type="tel" placeholder="Search..." />
           </InputGroup>
+          <ThemeToggle />
         </HStack>
       </Flex>
     </Box>

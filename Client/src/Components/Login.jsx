@@ -34,6 +34,7 @@ const App = () => {
       backgroundColor=""
       justifyContent="center"
       alignItems="center"
+      my={8}
       mb={8}
     >
       <Stack
@@ -44,7 +45,7 @@ const App = () => {
       >
         <Box display="flex" gap={10}>
           {/* <Avatar bg="Black" /> */}
-          <Heading color="black">Login</Heading>
+          <Heading color="">Login</Heading>
         </Box>
 
         <Box minW={{ base: "90%", md: "468px" }}>
@@ -101,7 +102,7 @@ const App = () => {
       </Stack>
       <Box>
         Don't have an account?{" "}
-        <Link color="black" href="/signup">
+        <Link color="" href="/signup">
           SignUp
         </Link>
       </Box>
